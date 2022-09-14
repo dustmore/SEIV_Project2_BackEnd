@@ -81,7 +81,7 @@ exports.findAll = (req, res) => {
 // Find a single Course with a course number 
 exports.findOne = (req, res) => {
     const numb = req.params.CourseNumber;
-    Course.findByPk(dept)
+    Course.findByPk(numb)
       .then(numb => {
         if (numb) {
           res.send(data);
