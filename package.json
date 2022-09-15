@@ -1,27 +1,24 @@
 {
-  "name": "nodejs-express-sequelize-mysql",
-  "version": "1.0.0",
-  "description": "Node.js Rest Apis with Express, Sequelize & MySQL.",
-  "main": "server.js",
+  "name": "seiv-p2-node",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
     "bundle": "mkdir deploy && cp -r config controllers models routes server.js package.json package-lock.json course-backend-t4.service deploy && rm deploy/config/db.config.js && mv deploy/config/prod.db.config.js deploy/config/db.config.js"
   },
-  "keywords": [
-    "nodejs",
-    "express",
-    "sequelize",
-    "mysql",
-    "rest",
-    "api"
-  ],
-  "author": "Dustin",
-  "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.20.0",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",
-    "express": "^4.18.1",
-    "mysql2": "^2.3.3",
-    "sequelize": "^6.21.4"
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "mariadb": "^2.4.2",
+    "morgan": "~1.9.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.1.0",
+    "pug": "^2.0.0-beta11",
+    "sequelize": "^6.3.5",
+    "sequelize-cli": "^6.2.0"
   }
 }
