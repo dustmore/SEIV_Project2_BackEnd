@@ -4,7 +4,8 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.STRING
       },
       CourseNumber: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        primaryKey: true
       },
       Level: {
         type: Sequelize.STRING

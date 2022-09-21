@@ -79,29 +79,30 @@ exports.findAll = (req, res) => {
   };
 
 // Find a single Course with a course number 
-exports.findOne = (req, res) => {
-    const numb = req.params.CourseNumber;
-    Course.findByPk(numb)
-      .then(numb => {
-        if (numb) {
+exports.findOne = (req, res) => {  
+    const CourseNumber = req.params.CourseNumber;
+    Course.findByPk(CourseNumber)
+      .then(data => {
+        if (data) {
           res.send(data);
         } else {
           res.status(404).send({
-            message: `Cannot find Course with course number=${numb}.`
+            message: `Cannot find Course with course number=${CourseNumber}.`
           });
         }
       })
       .catch(err => {
         res.status(500).send({
-          message: "Error retrieving Course with course number=" + numb
+          message: "Error retrieving Course with course number=" + CourseNumber
         });
       });
   };
+
 // Update a Course by the course number in the request
 exports.update = (req, res) => {
     const numb = req.params.CourseNumber;
     Course.update(req.body, {
-      where: { numb: numb }
+      where: { CourseNumber: numb }
     })
       .then(num => {
         if (num == 1) {
@@ -124,7 +125,7 @@ exports.update = (req, res) => {
 exports.delete = (req, res) => {
     const numb = req.params.CourseNumber;
     Course.destroy({
-      where: { numb : numb }
+      where: { CourseNumber : numb }
     })
       .then(num => {
         if (num == 1) {
