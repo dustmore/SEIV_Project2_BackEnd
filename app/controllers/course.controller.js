@@ -100,9 +100,9 @@ exports.findOne = (req, res) => {
 
 // Update a Course by the course number in the request
 exports.update = (req, res) => {
-    const numb = req.params.CourseNumber;
+    const CourseNumber = req.params.CourseNumber;
     Course.update(req.body, {
-      where: { CourseNumber: numb }
+      where: { CourseNumber: CourseNumber }
     })
       .then(num => {
         if (num == 1) {
@@ -111,21 +111,21 @@ exports.update = (req, res) => {
           });
         } else {
           res.send({
-            message: `Cannot update Course with course number=${numb}. Maybe Course was not found or req.body is empty!`
+            message: `Cannot update Course with course number=${CourseNumber}. Maybe Course was not found or req.body is empty!`
           });
         }
       })
       .catch(err => {
         res.status(500).send({
-          message: "Error updating Course with course number=" + numb
+          message: "Error updating Course with course number=" + CourseNumber
         });
       });
   };
 // Delete a Course with the specified department in the request
 exports.delete = (req, res) => {
-    const numb = req.params.CourseNumber;
+    const CourseNumber = req.params.CourseNumber;
     Course.destroy({
-      where: { CourseNumber : numb }
+      where: { CourseNumber : CourseNumber }
     })
       .then(num => {
         if (num == 1) {
@@ -134,13 +134,13 @@ exports.delete = (req, res) => {
           });
         } else {
           res.send({
-            message: `Cannot delete Course with course number=${numb}. Maybe Course was not found!`
+            message: `Cannot delete Course with course number=${CourseNumber}. Maybe Course was not found!`
           });
         }
       })
       .catch(err => {
         res.status(500).send({
-          message: "Could not delete Course with course number=" + numb
+          message: "Could not delete Course with course number=" + CourseNumber
         });
       });
   };
